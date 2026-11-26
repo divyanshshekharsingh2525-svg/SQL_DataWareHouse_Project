@@ -1,3 +1,8 @@
+-- ====================================================================
+-- Checking 'silver.crm_cust_info'
+-- ====================================================================
+-- Check for NULLs or Duplicates in Primary Key
+-- Expectation: No Results
 SELECT
     cst_id,
     COUNT(*)
@@ -130,6 +135,10 @@ WHERE cat != TRIM(cat)
    OR subcat != TRIM(subcat)
    OR maintenance != TRIM(maintenance);
 
+-- Data Standardization & Consistency
+SELECT DISTINCT
+    maintenance
+FROM silver.erp_px_cat_g1v2;
 -- Data Standardization & Consistency
 SELECT DISTINCT
     maintenance
